@@ -1,5 +1,5 @@
 """This file receives a request from the front-end Jupyter extension and pushes
-the grade back to the LMS"""
+the grade back to LMS"""
 
 import os
 import json
@@ -11,7 +11,7 @@ from notebook.base.handlers import IPythonHandler
 from bs4 import BeautifulSoup
 
 
-class UNCodePushHandler(IPythonHandler):
+class WebCatPushHandler(IPythonHandler):
 
     @property
     def notebook_dir(self):
@@ -40,7 +40,7 @@ class UNCodePushHandler(IPythonHandler):
             'd': institute
             }
 
-        url = ''
+        url = 'https://web-cat.cs.vt.edu/Web-CAT/WebObjects/Web-CAT.woa/wa/submit'
 
         filepath = self.notebook_dir + filename
 
@@ -65,6 +65,6 @@ class UNCodePushHandler(IPythonHandler):
 
 def setup_handlers(nbapp):
     webapp = nbapp.web_app
-    route_pattern = ujoin(webapp.settings['base_url'], '/uncode/push')
+    route_pattern = ujoin(webapp.settings['base_url'], '/webcat/push')
     webapp.settings['notebook_dir'] = nbapp.notebook_dir
-    webapp.add_handlers('.*', [(route_pattern, UNCodePushHandler)])
+    webapp.add_handlers('.*', [(route_pattern, WebCatPushHandler)])
