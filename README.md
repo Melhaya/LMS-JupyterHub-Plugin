@@ -46,3 +46,9 @@ A simplification of the whole system can be seen in the figure below:
 
 ### 2. Pipeline Description and Installation
 
+## Installation steps:
+
+1. pip3 install git+https://github.com/Melhaya/LMS-JupyterHub-Plugin
+2. jupyter serverextension enable --py webcatjupyterplugin
+3. jupyter nbextension install --py webcatjupyterplugin
+4. jupyter nbextension enable --py webcatjupyterplugin
