@@ -49,6 +49,6 @@ A simplification of the whole system can be seen in the figure below:
 ## Installation steps:
 
 1. pip3 install git+https://github.com/Melhaya/LMS-JupyterHub-Plugin
-2. jupyter serverextension enable --py webcatjupyterplugin
-3. jupyter nbextension install --py webcatjupyterplugin
-4. jupyter nbextension enable --py webcatjupyterplugin
+2. jupyter serverextension enable --py LTI_Score_Plugin
+3. jupyter nbextension install --py LTI_Score_Plugin
+4. jupyter nbextension enable --py LTI_Score_Plugin
