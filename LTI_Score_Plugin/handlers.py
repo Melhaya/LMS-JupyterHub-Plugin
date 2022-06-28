@@ -40,7 +40,7 @@ class WebCatPushHandler(IPythonHandler):
             'd': institute
             }
 
-        url = 'https://web-cat.cs.vt.edu/Web-CAT/WebObjects/Web-CAT.woa/wa/submit'
+        url =  'https://www.google.com/' #'https://web-cat.cs.vt.edu/Web-CAT/WebObjects/Web-CAT.woa/wa/submit'
 
         filepath = self.notebook_dir + filename
 
