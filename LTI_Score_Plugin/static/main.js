@@ -42,6 +42,7 @@ define([
                 var course = arr[2].split(":")[1].trim();
                 var assignment = arr[3].split(":")[1].trim();
                 var institute = arr[4].split(":")[1].trim();
+                var score = 0.5
             }
             catch (err) {
                 alert("The first cell doesn't contain the Web-CAT assignment "
@@ -57,7 +58,8 @@ define([
                 'filename': filepath,
                 'course': course,
                 'a': assignment,
-                'd': institute
+                'd': institute,
+                'score': score
             };
             var settings = {
                 url: '/webcat/push',
