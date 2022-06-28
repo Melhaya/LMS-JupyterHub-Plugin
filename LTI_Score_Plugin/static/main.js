@@ -3,8 +3,8 @@ define([
 ], function (
     Jupyter, requirejs, events, dialog
 ) {
-        var prefix = 'webcat-jupyter-extension';
-        var submitActionName = 'submit-to-webcat';
+        var prefix = 'lti-jupyter-extension';
+        var submitActionName = 'submit-assignment';
 
         function load_ipython_extension() {
             $('<link/>')
@@ -17,8 +17,8 @@ define([
                 .appendTo('head');
 
             var action = {
-                span: 'Submit to Web-CAT',
-                help: 'Submit to Web-CAT',
+                span: 'Submit assignment of openhpi',
+                help: 'Submit assignment ot openhpi',
                 help_index: 'zz',
                 handler: webcat_request
             };
