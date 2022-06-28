@@ -17,8 +17,8 @@ define([
                 .appendTo('head');
 
             var action = {
-                span: 'Submit assignment of openhpi',
-                help: 'Submit assignment ot openhpi',
+                span: 'Submit assignment to openhpi',
+                help: 'Submit assignment to openhpi',
                 help_index: 'zz',
                 handler: webcat_request
             };
@@ -26,7 +26,7 @@ define([
             Jupyter.actions.register(action, submitActionName, prefix);
             Jupyter.toolbar.add_buttons_group([{
                 'action': prefix + ':' + submitActionName,
-                'label': 'Submit to Web-CAT'
+                'label': 'Submit assignment to openhpi'
             }], submitActionName)
 
         }
