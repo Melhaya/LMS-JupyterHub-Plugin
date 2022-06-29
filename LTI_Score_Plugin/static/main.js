@@ -1,11 +1,10 @@
 define([
-    'base/js/namespace', 'require', 'base/js/events', 'base/js/dialog', 'python-shell'
+    'base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'
 ], function (
     Jupyter, requirejs, events, dialog
 ) {
         var prefix = 'lti-jupyter-extension';
         var submitActionName = 'submit-score';
-        var PythonShell = require('python-shell');
 
         function load_ipython_extension() {
             $('<link/>')
@@ -40,6 +39,7 @@ define([
             var filepath = window.location.pathname.match(re)[1];
             console.log(filepath, 'a7a_0')
             
+            var PythonShell = require('python-shell');
             var pyshell = new PythonShell('unit_test.py');
 
             pyshell.send(JSON.stringify([1,2,3,4,5]));
