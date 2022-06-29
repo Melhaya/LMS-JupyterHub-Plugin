@@ -49,7 +49,7 @@ define([
                 return String.fromCharCode.apply(null, data);
             };
 
-            const spawn = require('child_process').spawn;
+            const spawn = require(['child_process']).spawn;
             const scriptExecution = spawn(pythonExecutable, [myPythonScript]);
 
             // Handle normal output
