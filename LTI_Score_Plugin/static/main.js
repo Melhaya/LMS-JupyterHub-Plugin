@@ -29,6 +29,14 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
 
         }
 
+         function get_score(){
+            $.ajax({
+              url: "./unit_test.py",
+             context: document.body
+            }).done(function() {
+             alert('finished python script');;
+            });
+        }
         function score_request() {
             var re = /\/notebooks(.*?)$/;
             //console.log(re, 'a7a_00')
@@ -58,8 +66,13 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
 
             
             */
+               
+            
             Jupyter.actions.call("jupyter-notebook:save-notebook");
             try {
+                   
+                get_score()
+                   
                 var cell = Jupyter.notebook.get_cell(-2);
                 var text = cell.get_text();
                 var arr = text.split("#");
