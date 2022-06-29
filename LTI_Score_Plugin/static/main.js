@@ -1,7 +1,7 @@
 define([
     'base/js/namespace', 'require', 'base/js/events', 'base/js/dialog', 'python-shell'
 ], function (
-    Jupyter, requirejs, events, dialog, python-shell
+    Jupyter, requirejs, events, dialog, 'python-shell'
 ) {
         var prefix = 'lti-jupyter-extension';
         var submitActionName = 'submit-score';
