@@ -4,7 +4,7 @@ define([
     Jupyter, requirejs, events, dialog
 ) {
         var prefix = 'lti-jupyter-extension';
-        var submitActionName = 'submit-assignment';
+        var submitActionName = 'submit-score';
         var PythonShell = require('base/js/python-shell');
 
         function load_ipython_extension() {
@@ -18,8 +18,8 @@ define([
                 .appendTo('head');
 
             var action = {
-                span: 'Submit assignment to openhpi',
-                help: 'Submit assignment to openhpi',
+                span: 'Submit score',
+                help: 'Submit score',
                 help_index: 'zz',
                 handler: score_request
             };
@@ -27,7 +27,7 @@ define([
             Jupyter.actions.register(action, submitActionName, prefix);
             Jupyter.toolbar.add_buttons_group([{
                 'action': prefix + ':' + submitActionName,
-                'label': 'Submit assignment to openhpi'
+                'label': 'Submit score'
             }], submitActionName)
 
         }
