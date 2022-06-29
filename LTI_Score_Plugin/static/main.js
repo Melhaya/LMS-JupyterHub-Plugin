@@ -33,14 +33,16 @@ define([
 
         function score_request() {
             var re = /\/notebooks(.*?)$/;
-            console.log(re, 'a7a_00')
-            console.log(window.location.pathname, 'a7a_01')
+            //console.log(re, 'a7a_00')
+            //console.log(window.location.pathname, 'a7a_01')
             
             var filepath = window.location.pathname.match(re)[1];
             Jupyter.actions.call("jupyter-notebook:save-notebook");
             try {
-                var cell = Jupyter.notebook.get_cell(0);
-                console.log(cell, 'a7a_0')
+                var cell = Jupyter.notebook;
+                console.log(cell, 'cell')
+                var cell2 = Jupyter.notebook.get_cell(-2);
+                console.log(cell2, 'cell_2')
                 var text = cell.get_text();
                 var arr = text.split("#");
                 console.table(arr,'a7a_1')
