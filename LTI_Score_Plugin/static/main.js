@@ -1,5 +1,5 @@
 define([
-    'base/js/namespace', 'base/js/events', 'base/js/dialog', 'require'
+    'base/js/namespace', 'require', 'base/js/events', 'base/js/dialog', 'python-shell'
 ], function (
     Jupyter, requirejs, events, dialog
 ) {
