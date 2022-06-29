@@ -5,19 +5,6 @@ Created on Tue May 24 00:31:42 2022
 @co-author: Mohamed Elhayany
 """
 
-'''
-import sys
-# total arguments
-n = len(sys.argv)
-
-#print("Total arguments passed:", n)
-#print(sys.argv[0])
-#print(sys.argv[1])
-print("*"*85)
-print("Note: Please make sure you entered the correct notebook name for a successful grading")
-print("*"*85)
-print(f"Notebook name recieved: {sys.argv[1]}")
-loc = sys.argv[1]
 
 from testbook import testbook
 
@@ -127,10 +114,3 @@ if __name__ == __main__:
     get_score('./ssnn_with_autograding_script.ipynb')
 
 #print(f"Your score: {points_a + points_b + points_c + points_d} / 4.0")
-'''
-
-def get_score():
-    return 1
-
-if __name__ == __main__:
-    get_score()
