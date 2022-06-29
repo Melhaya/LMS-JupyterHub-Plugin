@@ -42,7 +42,8 @@ define([
             var myPythonScriptPath = 'test_code_white.py';
             
             // Use python shell
-            const {PythonShell} = require('python-shell');
+            let {PythonShell} = require('python-shell')
+            
             var pyshell = new PythonShell(myPythonScriptPath);
             
             pyshell.on('message', function (message) {
