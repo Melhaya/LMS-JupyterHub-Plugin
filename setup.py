@@ -10,7 +10,9 @@ setuptools.setup(
     install_requires=[
         'bs4',
         'gitpython',
-        'requests'
+        'requests',
+        'python-shell'
+
     ],
     package_data={'LTI_Score_Plugin': ['static/*']},
 )
