@@ -1,5 +1,5 @@
 define([
-    'base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'
+    'base/js/namespace', 'require', 'base/js/events', 'base/js/dialog', 'child_process'
 ], function (
     Jupyter, requirejs, events, dialog
 ) {
