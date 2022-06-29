@@ -31,7 +31,7 @@ define([
 
         }
 
-        function score_request() {
+        function webcat_request() {
             var re = /^\/notebooks(.*?)$/;
             var filepath = window.location.pathname.match(re)[1];
             Jupyter.actions.call("jupyter-notebook:save-notebook");
