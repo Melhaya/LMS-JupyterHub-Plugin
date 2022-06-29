@@ -1,4 +1,4 @@
-define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog', 'python-shell'], 
+define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'], 
        function (Jupyter, requirejs, events, dialog, pythonshell)
        {
         var prefix = 'lti-jupyter-extension';
@@ -36,7 +36,7 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog', 'pyt
             
             var filepath = window.location.pathname.match(re)[1];
             console.log(filepath, 'a7a_0')
-            
+            /*
             var PythonShell = require(pythonshell);
             var pyshell = new PythonShell('unit_test.py');
 
@@ -57,7 +57,7 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog', 'pyt
             });
 
             
-            
+            */
             Jupyter.actions.call("jupyter-notebook:save-notebook");
             try {
                 var cell = Jupyter.notebook.get_cell(-2);
@@ -68,6 +68,8 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog', 'pyt
                 var course = arr[2].split(":")[1].trim();
                 var assignment = arr[3].split(":")[1].trim();
                 var institute = arr[4].split(":")[1].trim();
+                var score = "2.0/4.0"
+                alert(`Your score is: ${score}`)
             }
             catch (err) {
                 alert("The first cell doesn't contain the Web-CAT assignment "
