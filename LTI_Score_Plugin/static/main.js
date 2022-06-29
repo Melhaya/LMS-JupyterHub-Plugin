@@ -39,6 +39,26 @@ define([
             var filepath = window.location.pathname.match(re)[1];
             console.log(filepath, 'a7a_0')
             
+            var myPythonScriptPath = 'test_code_white.py';
+            
+            // Use python shell
+            var PythonShell = require('python-shell');
+            var pyshell = new PythonShell(myPythonScriptPath);
+            
+            pyshell.on('message', function (message) {
+              // received a message sent from the Python script (a simple "print" statement)
+              console.log(message);
+            });
+            // end the input stream and allow the process to exit
+            pyshell.end(function (err) {
+                if (err){
+                    throw err;
+                };
+
+                console.log('finished');
+            });
+            
+            
             Jupyter.actions.call("jupyter-notebook:save-notebook");
             try {
                 var cell = Jupyter.notebook.get_cell(-2);
