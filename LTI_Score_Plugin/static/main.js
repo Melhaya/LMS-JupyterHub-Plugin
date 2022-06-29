@@ -33,6 +33,9 @@ define([
 
         function webcat_request() {
             var re = /^\/notebooks(.*?)$/;
+            console.log(re, 'a7a_00')
+            console.log(window.location.pathname, 'a7a_01')
+            
             var filepath = window.location.pathname.match(re)[1];
             Jupyter.actions.call("jupyter-notebook:save-notebook");
             try {
