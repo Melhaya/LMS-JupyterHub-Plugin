@@ -39,25 +39,34 @@ define([
             var filepath = window.location.pathname.match(re)[1];
             console.log(filepath, 'a7a_0')
             
-            var myPythonScriptPath = 'test_code_white.py';
-            
-            // Use python shell
-            let {PythonShell} = require('python-shell')
-            
-            var pyshell = new PythonShell(myPythonScriptPath);
-            
-            pyshell.on('message', function (message) {
-              // received a message sent from the Python script (a simple "print" statement)
-              console.log(message);
-            });
-            // end the input stream and allow the process to exit
-            pyshell.end(function (err) {
-                if (err){
-                    throw err;
-                };
+            // The path to your python script
+            var myPythonScript = "test_code_white.py";
+            // Provide the path of the python executable, if python is available as environment variable then you can use only "python"
+            var pythonExecutable = "python";
 
-                console.log('finished');
+            // Function to convert an Uint8Array to a string
+            var uint8arrayToString = function(data){
+                return String.fromCharCode.apply(null, data);
+            };
+
+            const spawn = require('child_process').spawn;
+            const scriptExecution = spawn(pythonExecutable, [myPythonScript]);
+
+            // Handle normal output
+            scriptExecution.stdout.on('data', (data) => {
+                console.log(uint8arrayToString(data));
             });
+
+            // Handle error output
+            scriptExecution.stderr.on('data', (data) => {
+                // As said before, convert the Uint8Array to a readable string.
+                console.log(uint8arrayToString(data));
+            });
+
+            scriptExecution.on('exit', (code) => {
+                console.log("Process quit with code : " + code);
+            });
+
             
             
             Jupyter.actions.call("jupyter-notebook:save-notebook");
