@@ -102,22 +102,27 @@ def test_d(loc):
 
 for i in range(1):
     print("\n")
-print("Testing your solution for Task 1: SGD")
-points_a = test_a(loc)
 
-print("*"*60)
-print("Testing your solution for Task 2: Fully Connected Layer")
-points_b = test_b(loc)
+def get_score(loc):
+    
+    print("Testing your solution for Task 1: SGD")
+    points_a = test_a(loc)
 
-print("*"*60)
-print("Testing your solution for Task 3: Mean Squared Error")
-points_c = test_c(loc)
+    print("*"*60)
+    print("Testing your solution for Task 2: Fully Connected Layer")
+    points_b = test_b(loc)
 
-print("*"*60)
-print("Testing your solution for Task 4: ReLU (Rectified Linear Unit)")
-points_d = test_d(loc)
+    print("*"*60)
+    print("Testing your solution for Task 3: Mean Squared Error")
+    points_c = test_c(loc)
 
-for i in range(2):
-    print("*")
+    print("*"*60)
+    print("Testing your solution for Task 4: ReLU (Rectified Linear Unit)")
+    points_d = test_d(loc)
+    
+    return points_a + points_b + points_c + points_d
 
-print(f"Your score: {points_a + points_b + points_c + points_d} / 4.0")
+if __name__ == __main__:
+    get_score('./ssnn_with_autograding_script.ipynb')
+
+#print(f"Your score: {points_a + points_b + points_c + points_d} / 4.0")
