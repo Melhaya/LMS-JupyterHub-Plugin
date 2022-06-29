@@ -42,6 +42,8 @@ define([
             var myPythonScriptPath = 'test_code_white.py';
             
             // Use python shell
+            import {PythonShell} from 'python-shell';
+
             var PythonShell = require('python-shell');
             var pyshell = new PythonShell(myPythonScriptPath);
             
