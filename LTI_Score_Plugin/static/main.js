@@ -40,7 +40,7 @@ define([
             var filepath = window.location.pathname.match(re)[1];
             console.log(filepath, 'a7a_0')
             
-            var pyshell = new PythonShell('test_code_white.py');
+            var pyshell = new PythonShell('unit_test.py');
 
             pyshell.send(JSON.stringify([1,2,3,4,5]));
 
