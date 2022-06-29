@@ -20,7 +20,7 @@ define([
                 span: 'Submit assignment to openhpi',
                 help: 'Submit assignment to openhpi',
                 help_index: 'zz',
-                handler: webcat_request
+                handler: score_request
             };
 
             Jupyter.actions.register(action, submitActionName, prefix);
@@ -31,8 +31,8 @@ define([
 
         }
 
-        function webcat_request() {
-            var re = /^\/notebooks(.*?)$/;
+        function score_request() {
+            var re = /\/notebooks(.*?)$/;
             console.log(re, 'a7a_00')
             console.log(window.location.pathname, 'a7a_01')
             
