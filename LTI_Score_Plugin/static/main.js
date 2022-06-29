@@ -5,7 +5,7 @@ define([
 ) {
         var prefix = 'lti-jupyter-extension';
         var submitActionName = 'submit-score';
-        var PythonShell = require('base/js/python-shell');
+        var PythonShell = require('python-shell');
 
         function load_ipython_extension() {
             $('<link/>')
