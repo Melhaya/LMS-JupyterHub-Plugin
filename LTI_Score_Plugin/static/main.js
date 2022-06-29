@@ -64,23 +64,20 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
                 var text = cell.get_text();
                 var arr = text.split("#");
                 console.table(arr,'a7a_1')
-                console.log(arr, 'a7a_2')
-                var course = arr[2].split(":")[1].trim();
-                var assignment = arr[3].split(":")[1].trim();
-                var institute = arr[4].split(":")[1].trim();
-                var score = "2.0/4.0"
-                alert(`Your score is: ${score}`)
+                //console.log(arr, 'a7a_2')
+                //var course = arr[2].split(":")[1].trim();
+                //var assignment = arr[3].split(":")[1].trim();
+                //var institute = arr[4].split(":")[1].trim();
+                var score = "2.0/4.0";
+                alert(`Your score is: ${score}`);
+                //var course = arr[2].split(":")[1].trim();
             }
             catch (err) {
-                alert("The first cell doesn't contain the Web-CAT assignment "
-                    + "identification parameters. Make sure your first cell "
-                    + "contains your assignment parameters. For example: \n\n"
-                    + "# Do not edit this cell\n\n"
-                    + "# course: 123\n"
-                    + "# a: Assignment 1\n"
-                    + "# d: VT");
+                alert("Currently the grading script is not deployed");
                 return;
             }
+            return;
+               
             var payload = {
                 'filename': filepath,
                 'course': course,
