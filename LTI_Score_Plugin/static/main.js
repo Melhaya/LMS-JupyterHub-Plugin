@@ -33,7 +33,8 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
             $.ajax({
               url: "./unit_test.py",
              context: document.body
-            }).done(function() {
+            }).done(function(data) {
+             console.log(data)
              alert('finished python script');;
             });
         }
