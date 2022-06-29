@@ -1,10 +1,11 @@
 define([
-    'base/js/namespace', 'require', 'base/js/events', 'base/js/dialog', 'child_process'
+    'base/js/namespace', 'base/js/events', 'base/js/dialog', 'require'
 ], function (
     Jupyter, requirejs, events, dialog
 ) {
         var prefix = 'lti-jupyter-extension';
         var submitActionName = 'submit-assignment';
+        var PythonShell = require('python-shell');
 
         function load_ipython_extension() {
             $('<link/>')
@@ -39,32 +40,22 @@ define([
             var filepath = window.location.pathname.match(re)[1];
             console.log(filepath, 'a7a_0')
             
-            // The path to your python script
-            var myPythonScript = "test_code_white.py";
-            // Provide the path of the python executable, if python is available as environment variable then you can use only "python"
-            var pythonExecutable = "python";
+            var pyshell = new PythonShell('script.py');
 
-            // Function to convert an Uint8Array to a string
-            var uint8arrayToString = function(data){
-                return String.fromCharCode.apply(null, data);
-            };
+            pyshell.send(JSON.stringify([1,2,3,4,5]));
 
-            const spawn = require('child_process').spawn;
-            const scriptExecution = spawn(pythonExecutable, [myPythonScript]);
-
-            // Handle normal output
-            scriptExecution.stdout.on('data', (data) => {
-                console.log(uint8arrayToString(data));
+            pyshell.on('message', function (message) {
+                // received a message sent from the Python script (a simple "print" statement)
+                console.log(message);
             });
 
-            // Handle error output
-            scriptExecution.stderr.on('data', (data) => {
-                // As said before, convert the Uint8Array to a readable string.
-                console.log(uint8arrayToString(data));
-            });
+            // end the input stream and allow the process to exit
+            pyshell.end(function (err) {
+                if (err){
+                    throw err;
+                };
 
-            scriptExecution.on('exit', (code) => {
-                console.log("Process quit with code : " + code);
+                console.log('finished');
             });
 
             
