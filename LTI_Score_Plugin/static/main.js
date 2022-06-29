@@ -31,18 +31,20 @@ define([
 
         }
 
-        function webcat_request() {
+        function score_request() {
             var re = /^\/notebooks(.*?)$/;
             var filepath = window.location.pathname.match(re)[1];
             Jupyter.actions.call("jupyter-notebook:save-notebook");
             try {
                 var cell = Jupyter.notebook.get_cell(0);
+                console.log(cell, 'a7a_0')
                 var text = cell.get_text();
                 var arr = text.split("#");
+                console.table(arr,'a7a_1')
+                console.log(arr, 'a7a_2')
                 var course = arr[2].split(":")[1].trim();
                 var assignment = arr[3].split(":")[1].trim();
                 var institute = arr[4].split(":")[1].trim();
-                var score = 0.5
             }
             catch (err) {
                 alert("The first cell doesn't contain the Web-CAT assignment "
@@ -58,8 +60,7 @@ define([
                 'filename': filepath,
                 'course': course,
                 'a': assignment,
-                'd': institute,
-                'score': score
+                'd': institute
             };
             var settings = {
                 url: '/webcat/push',
