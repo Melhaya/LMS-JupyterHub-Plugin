@@ -49,10 +49,10 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
             Jupyter.actions.call("jupyter-notebook:save-notebook");
             try {
                
-             
+             /*
              import {PythonShell} from 'python-shell';
              var PythonShell = require(pythonshell);
-              /*
+              
               var PythonShell = require(pythonshell);
               var pyshell = new PythonShell('./unit_test.py');
               pyshell.send(JSON.stringify([1,2,3,4,5]));
