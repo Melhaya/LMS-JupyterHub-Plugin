@@ -51,6 +51,7 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
                
              
              import {PythonShell} from 'python-shell';
+             var PythonShell = require(pythonshell);
               /*
               var PythonShell = require(pythonshell);
               var pyshell = new PythonShell('./unit_test.py');
