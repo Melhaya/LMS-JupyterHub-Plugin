@@ -48,7 +48,24 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
             
             Jupyter.actions.call("jupyter-notebook:save-notebook");
             try {
-                   
+               
+             /*
+            var PythonShell = require(pythonshell);
+            var pyshell = new PythonShell('./unit_test.py');
+            pyshell.send(JSON.stringify([1,2,3,4,5]));
+            pyshell.on('message', function (message) {
+                // received a message sent from the Python script (a simple "print" statement)
+                console.log(message);
+            });
+            // end the input stream and allow the process to exit
+            pyshell.end(function (err) {
+                if (err){
+                    throw err;
+                };
+                console.log('finished');
+            });
+
+            */
                 get_score()
                    
                 var cell = Jupyter.notebook.get_cell(-2);
