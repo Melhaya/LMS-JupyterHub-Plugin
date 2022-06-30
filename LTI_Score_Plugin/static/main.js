@@ -40,33 +40,10 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
         }
         function score_request() {
             var re = /\/notebooks(.*?)$/;
-            //console.log(re, 'a7a_00')
             //console.log(window.location.pathname, 'a7a_01')
             
             var filepath = window.location.pathname.match(re)[1];
             console.log(filepath, 'a7a_0')
-            /*
-            var PythonShell = require(pythonshell);
-            var pyshell = new PythonShell('unit_test.py');
-
-            pyshell.send(JSON.stringify([1,2,3,4,5]));
-
-            pyshell.on('message', function (message) {
-                // received a message sent from the Python script (a simple "print" statement)
-                console.log(message);
-            });
-
-            // end the input stream and allow the process to exit
-            pyshell.end(function (err) {
-                if (err){
-                    throw err;
-                };
-
-                console.log('finished');
-            });
-
-            
-            */
                
             
             Jupyter.actions.call("jupyter-notebook:save-notebook");
