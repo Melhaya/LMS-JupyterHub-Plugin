@@ -95,7 +95,7 @@ def test_d(loc):
 for i in range(1):
     print("\n")
 
-@api.model    
+
 def get_score(loc):
     
     print("Testing your solution for Task 1: SGD")
