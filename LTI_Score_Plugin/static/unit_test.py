@@ -10,6 +10,8 @@ from testbook import testbook
 from flask import Flask
 
 
+app = Flask(__name__)
+
 """
     TASK 1: SGD
 """
@@ -93,6 +95,7 @@ def test_d(loc):
 for i in range(1):
     print("\n")
 
+@api.model    
 def get_score(loc):
     
     print("Testing your solution for Task 1: SGD")
