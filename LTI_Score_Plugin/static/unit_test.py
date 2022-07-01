@@ -96,7 +96,8 @@ for i in range(1):
     print("\n")
 
 
-def get_score(loc):
+@app.route('/fetch_score', methods=['GET'])
+def get_score(loc="./ssnn_with_autograding_script.ipynb"):
     
     print("Testing your solution for Task 1: SGD")
     points_a = test_a(loc)
@@ -116,6 +117,7 @@ def get_score(loc):
     return {"score": points_a + points_b + points_c + points_d}
 
 if __name__ == "__main__":
-    get_score('./ssnn_with_autograding_script.ipynb')
+    app.run(debug=True)
+    #get_score('./ssnn_with_autograding_script.ipynb')
 
 #print(f"Your score: {points_a + points_b + points_c + points_d} / 4.0")
