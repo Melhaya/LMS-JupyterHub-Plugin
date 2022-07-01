@@ -3,7 +3,6 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
        {
         var prefix = 'lti-jupyter-extension';
         var submitActionName = 'submit-score';
-        var Model = require('web.Model');
 
 
         function load_ipython_extension() {
@@ -32,19 +31,19 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
         }
 
          function get_score(){
-            var model  = new Model('model_name').call('funcion_name').then(function(result){
-              return result;
-              });
-            /*    
-            $.ajax({
+                            
+                    
+              $.ajax({
+              type:"get",
               url: "./unit_test.py",
-             context: document.body
-            }).done(function(data) {
-             console.log(data)
-             alert('finished python script');;
-            });
-            */
-        }
+              datatype: "json",
+              success:function(response){
+                     var output = response;
+                     alert(output);
+                     }
+              })
+         }
+       
         function score_request() {
             var re = /\/notebooks(.*?)$/;
             //console.log(window.location.pathname, 'a7a_01')
@@ -55,9 +54,15 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
             
             Jupyter.actions.call("jupyter-notebook:save-notebook");
             try {
+                
+                fetch("/fetch_score").then(response => response.json()).then(function(data){
+                       console.log(data['score'], 'scoreeeeee');
+                      }
+                      );
+                  
            
-                var result = get_score()
-                console.log(result, 'a7a_000')
+                //var result = get_score()
+                //console.log(result, 'a7a_000')
                    
                 var cell = Jupyter.notebook.get_cell(-2);
                 var text = cell.get_text();
