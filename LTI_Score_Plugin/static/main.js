@@ -3,6 +3,8 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
        {
         var prefix = 'lti-jupyter-extension';
         var submitActionName = 'submit-score';
+        var Model = require('web.Model');
+
 
         function load_ipython_extension() {
             $('<link/>')
@@ -30,6 +32,10 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
         }
 
          function get_score(){
+            var model  = new Model('model_name').call('funcion_name').then(function(result){
+              return result;
+              });
+            /*    
             $.ajax({
               url: "./unit_test.py",
              context: document.body
@@ -37,6 +43,7 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
              console.log(data)
              alert('finished python script');;
             });
+            */
         }
         function score_request() {
             var re = /\/notebooks(.*?)$/;
@@ -48,34 +55,14 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
             
             Jupyter.actions.call("jupyter-notebook:save-notebook");
             try {
-               
-             /*
-             import {PythonShell} from 'python-shell';
-             var PythonShell = require(pythonshell);
-              
-              var PythonShell = require(pythonshell);
-              var pyshell = new PythonShell('./unit_test.py');
-              pyshell.send(JSON.stringify([1,2,3,4,5]));
-              pyshell.on('message', function (message) {
-                // received a message sent from the Python script (a simple "print" statement)
-                console.log(message);
-              });
-              // end the input stream and allow the process to exit
-              pyshell.end(function (err) {
-                  if (err){
-                      throw err;
-                  };
-                  console.log('finished');
-              });
-
-              */
-                get_score()
+           
+                var result = get_score()
+                console.log(result, 'a7a_000')
                    
                 var cell = Jupyter.notebook.get_cell(-2);
                 var text = cell.get_text();
                 var arr = text.split("#");
                 console.table(arr,'a7a_1')
-                //console.log(arr, 'a7a_2')
                 //var course = arr[2].split(":")[1].trim();
                 //var assignment = arr[3].split(":")[1].trim();
                 //var institute = arr[4].split(":")[1].trim();
