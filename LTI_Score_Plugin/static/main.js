@@ -29,20 +29,6 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
             }], submitActionName)
 
         }
-
-         function get_score(){
-                            
-                    
-              $.ajax({
-              type:"get",
-              url: "./unit_test.py",
-              datatype: "json",
-              success:function(response){
-                     var output = response;
-                     alert(output);
-                     }
-              })
-         }
        
         function score_request() {
             var re = /\/notebooks(.*?)$/;
