@@ -41,14 +41,10 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
             Jupyter.actions.call("jupyter-notebook:save-notebook");
             try {
                 
-                fetch("tcp://127.0.0.1:2375/fetch_score").then(response => response.json()).then(function(data){
+                fetch("https://jupyterhub.xopic.de/hub/fetch_score").then(response => response.json()).then(function(data){
                        console.log(data['score'], 'scoreeeeee');
                       }
                       );
-                  
-           
-                //var result = get_score()
-                //console.log(result, 'a7a_000')
                    
                 var cell = Jupyter.notebook.get_cell(-2);
                 var text = cell.get_text();
@@ -58,7 +54,7 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
                 //var assignment = arr[3].split(":")[1].trim();
                 //var institute = arr[4].split(":")[1].trim();
                 var score = "2.0/4.0";
-                alert(`Your score is: ${score}`);
+                //alert(`Your score is: ${score}`);
                 //var course = arr[2].split(":")[1].trim();
             }
             catch (err) {
