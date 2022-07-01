@@ -55,7 +55,7 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
             Jupyter.actions.call("jupyter-notebook:save-notebook");
             try {
                 
-                fetch("/").then(response => response.json()).then(function(data){
+                fetch("https://jupyterhub.xopic.de/hub/lti/launch/fetch_score").then(response => response.json()).then(function(data){
                        console.log(data['score'], 'scoreeeeee');
                       }
                       );
