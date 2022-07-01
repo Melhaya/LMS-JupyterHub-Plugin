@@ -113,7 +113,7 @@ def get_score(loc):
     print("Testing your solution for Task 4: ReLU (Rectified Linear Unit)")
     points_d = test_d(loc)
     
-    return points_a + points_b + points_c + points_d
+    return {"score": points_a + points_b + points_c + points_d}
 
 if __name__ == "__main__":
     get_score('./ssnn_with_autograding_script.ipynb')
