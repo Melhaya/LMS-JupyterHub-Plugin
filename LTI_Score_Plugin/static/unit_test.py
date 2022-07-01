@@ -117,7 +117,7 @@ def get_score(loc="./ssnn_with_autograding_script.ipynb"):
     return {"score": points_a + points_b + points_c + points_d}
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
     #get_score('./ssnn_with_autograding_script.ipynb')
 
 #print(f"Your score: {points_a + points_b + points_c + points_d} / 4.0")
