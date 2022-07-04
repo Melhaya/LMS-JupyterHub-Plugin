@@ -41,6 +41,7 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
             Jupyter.actions.call("jupyter-notebook:save-notebook");
             try {
                 //https://jupyterhub.xopic.de/hub/
+                console.log("Current directory:", process.cwd());
                 console.log("Current directory:", __dirname);
                 fetch("http://127.0.0.1:2375/fetch_score").then(response => response.json()).then(function(data){
                        console.log(data['score'], 'scoreeeeee');
