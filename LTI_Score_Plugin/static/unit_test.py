@@ -23,9 +23,9 @@ def get_point(loc, task_number=1, cells = []):
         with testbook(loc, execute=cells) as tb1:
             if tb1.cell_output_text(cells[-1]) == 'Test passed.':
                 point+=1
-                print(f"Task {task_number} Passed. \u2705")
+                #print(f"Task {task_number} Passed. \u2705")
     except Exception:
-        print(f"Task {task_number} failed. \u274c")
+        #print(f"Task {task_number} failed. \u274c")
         return point
     return point
 
@@ -34,22 +34,22 @@ def get_point(loc, task_number=1, cells = []):
 @app.route('/fetch_score', methods=['GET'])
 def get_score(loc="./ssnn_with_autograding_script.ipynb"):
                                           
-    for i in range(1):                                  
-        print("\n")
+    #for i in range(1):                                  
+    #    print("\n")
     
-    print("Testing your solution for Task 1: SGD")
+    #print("Testing your solution for Task 1: SGD")
     points_a = get_point(loc, task_number=1, cells = [1,3,5,7])
 
-    print("*"*60)
-    print("Testing your solution for Task 2: Fully Connected Layer")
+    #print("*"*60)
+    #print("Testing your solution for Task 2: Fully Connected Layer")
     points_b = get_point(loc, task_number=2, cells = [1,3,9,11,13])
 
-    print("*"*60)
-    print("Testing your solution for Task 3: Mean Squared Error")
+    #print("*"*60)
+    #print("Testing your solution for Task 3: Mean Squared Error")
     points_c = get_point(loc, task_number=3, cells = [1,3,11,15,17])
 
-    print("*"*60)
-    print("Testing your solution for Task 4: ReLU (Rectified Linear Unit)")
+    #print("*"*60)
+    #print("Testing your solution for Task 4: ReLU (Rectified Linear Unit)")
     points_d = get_point(loc, task_number=4, cells = [1,3,19,21])
     
     return jsonify({"score": points_a + points_b + points_c + points_d})
