@@ -32,10 +32,10 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
        
         function score_request() {
             var re = /\/notebooks(.*?)$/;
-            //console.log(window.location.pathname, 'a7a_01')
+            console.log(window.location.pathname, 'current_window_location')
             
             var filepath = window.location.pathname.match(re)[1];
-            console.log(filepath, 'a7a_0')
+            console.log(window.location.pathname.match(re), 'matching with re')
                
             
             Jupyter.actions.call("jupyter-notebook:save-notebook");
