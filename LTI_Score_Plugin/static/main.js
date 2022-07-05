@@ -32,14 +32,15 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
        
         function score_request() {
             var re = /\/notebooks(.*?)$/;
-            console.log(window.location.pathname, 'current_window_location')
-            console.log(window.location.pathname.substring(1, window.location.pathname.lastIndexOf('/')), 'dir1');
-            var dir = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'))
-            console.log(dir, 'dir0')
-            var filepath = window.location.pathname.match(re)[1];
+            console.log(window.location.pathname, 'current_notebook_location')
+            var loc = window.location.pathname
+            var dir = loc.substring(0, loc.lastIndexOf('/'))
+            console.log(dir, 'current directory')
                
-            
+            //var filepath = window.location.pathname.match(re)[1];
+          
             Jupyter.actions.call("jupyter-notebook:save-notebook");
+            
             try {
                 //https://jupyterhub.xopic.de/hub/
                 //http://127.0.0.1:2375
