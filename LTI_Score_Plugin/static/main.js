@@ -43,25 +43,25 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
             try {
                 //https://jupyterhub.xopic.de/hub/
                 //http://127.0.0.1:2375
-                //console.log("Current directory:", __dirname);
                 fetch(dir+"/fetch_score").then(response => response.json()).then(function(data){
-                       console.log(data['score'], 'scoreeeeee');
+                       alert(data['score'], 'scoreeeeee');
                       }
                       );
-                   
+                /*   
                 var cell = Jupyter.notebook.get_cell(-2);
                 var text = cell.get_text();
                 var arr = text.split("#");
                 console.table(arr,'a7a_1')
-                //var course = arr[2].split(":")[1].trim();
-                //var assignment = arr[3].split(":")[1].trim();
-                //var institute = arr[4].split(":")[1].trim();
+                var course = arr[2].split(":")[1].trim();
+                var assignment = arr[3].split(":")[1].trim();
+                var institute = arr[4].split(":")[1].trim();
+                */
                 var score = "2.0/4.0";
                 alert(`Your score is: ${score}`);
-                //var course = arr[2].split(":")[1].trim();
+                
             }
             catch (err) {
-                alert("Currently the grading script is not deployed");
+                alert("Currently the grading functionality is not deployed");
                 return;
             }
             return;
