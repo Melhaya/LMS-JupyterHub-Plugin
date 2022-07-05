@@ -44,10 +44,15 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
             try {
                 //https://jupyterhub.xopic.de/hub/
                 //http://127.0.0.1:2375
-                fetch(dir+"/fetch_score").then(response => response.json()).then(function(data){
-                       alert(data['score'], 'scoreeeeee');
-                      }
-                      );
+                fetch("/fetch_score").then(function (response) { 
+                       return response.json();
+                }).then(function (text) { console.log('GET response:'); 
+                                          console.log(text.score);
+                                        });
+                //fetch(dir+"/fetch_score").then(response => response.json()).then(function(data){
+                //       alert(data['score'], 'scoreeeeee');
+                //      }
+                //      );
                 /*   
                 var cell = Jupyter.notebook.get_cell(-2);
                 var text = cell.get_text();
