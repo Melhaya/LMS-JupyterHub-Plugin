@@ -52,7 +52,7 @@ def get_score(loc="./ssnn_with_autograding_script.ipynb"):
     print("Testing your solution for Task 4: ReLU (Rectified Linear Unit)")
     points_d = get_point(loc, task_number=4, cells = [1,3,19,21])
     
-    return jsonify("score": points_a + points_b + points_c + points_d)
+    return jsonify({"score": points_a + points_b + points_c + points_d})
 
 '''
 import sys
