@@ -33,7 +33,7 @@ define(['base/js/namespace', 'require', 'base/js/events', 'base/js/dialog'],
         function score_request() {
             var re = /\/notebooks(.*?)$/;
             console.log(window.location.pathname, 'current_window_location')
-            console.log(window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'), 'dir');
+            console.log(window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'), 'dir'));
             
             var filepath = window.location.pathname.match(re)[1];
             console.log(window.location.pathname.match(re), 'matching with re')
