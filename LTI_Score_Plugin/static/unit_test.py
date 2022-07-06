@@ -67,5 +67,5 @@ loc = sys.argv[1]
 '''
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', port=7543, debug=True)
     #print(f"Your score is: {get_score(loc)['score']} / 4.0")
