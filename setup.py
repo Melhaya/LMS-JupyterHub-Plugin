@@ -8,10 +8,8 @@ setuptools.setup(
     description="Jupyter Notebook Plugin for submitting score to LMS through LTI",
     packages=setuptools.find_packages(),
     install_requires=[
-        'bs4',
-        'gitpython',
-        'requests',
-        'python-shell'
+        'testbook',
+        'Flask'
 
     ],
     package_data={'LTI_Score_Plugin': ['static/*']},
